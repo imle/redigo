@@ -303,13 +303,6 @@ func DialContext(ctx context.Context, network, address string, options ...DialOp
 		}
 	}
 
-	//if do.db != 0 {
-	//	if _, err := c.Do("SELECT", do.db); err != nil {
-	//		netConn.Close()
-	//		return nil, err
-	//	}
-	//}
-
 	return c, nil
 }
 

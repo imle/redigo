@@ -27,11 +27,7 @@ type testConn struct {
 }
 
 func (t testConn) Close() error {
-	_, err := t.Conn.Do("SELECT", "9")
-	if err != nil {
-		return nil
-	}
-	_, err = t.Conn.Do("FLUSHDB")
+	_, err := t.Conn.Do("FLUSHDB")
 	if err != nil {
 		return err
 	}
@@ -47,12 +43,6 @@ func DialTest() (redis.Conn, error) {
 		redis.DialWriteTimeout(time.Second),
 	)
 	if err != nil {
-		return nil, err
-	}
-
-	_, err = c.Do("SELECT", "9")
-	if err != nil {
-		c.Close()
 		return nil, err
 	}
 
